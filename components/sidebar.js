@@ -67,19 +67,24 @@ document.getElementById("sidebar").innerHTML = `
           )}">Beda Potensial Listrik</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-2/2/" class="list-course-child ${getChapChild(
-            "materi-2/2/"
+          <a href="/pages/course-1/2/" class="list-course-child ${getChapChild(
+            "course-1/2/"
           )}">Hambatan Listrik</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-2/3/" class="list-course-child ${getChapChild(
-            "materi-2/3/"
+          <a href="/pages/course-1/3/" class="list-course-child ${getChapChild(
+            "course-1/3/"
           )}">Rangkaian Listrik</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-2/4/" class="list-course-child ${getChapChild(
-            "materi-2/4/"
-          )}">Karakteristik Rangkaian Listrik</a>
+          <a href="/pages/course-1/4/" class="list-course-child ${getChapChild(
+            "course-1/4/"
+          )}">Karakteristik Rangkaian Listrik (Hukum I Kirchhoff)</a>
+        </div>
+        <div class="list-course mb-3">
+          <a href="/pages/course-1/5/" class="list-course-child ${getChapChild(
+            "course-1/5/"
+          )}">Karakteristik Rangkaian Listrik (Rangkaian Hambatan Listrik)</a>
         </div>
         <div class="list-course">
           <a href="/pages/materi-2/4/" class="list-course-child ${getChapChild(

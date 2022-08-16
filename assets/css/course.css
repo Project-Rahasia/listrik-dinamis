@@ -27,7 +27,14 @@ p.math {
 }
 
 #math {
-  font-size: 1.3em;
+  font-size: 1.2em;
+}
+
+.table thead tr th, tbody tr td, tbody tr th {
+  color: #3F3F46;
+  font-family: 'Open Sans';
+  font-size: 1.2em;
+  line-height: 2.2em !important;
 }
 
 /* Navbar */
