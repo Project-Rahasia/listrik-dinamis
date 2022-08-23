@@ -37,6 +37,19 @@ p.math {
   line-height: 2.2em !important;
 }
 
+.btn-check-answer {
+  font-size: 1em;
+  padding: 0.5em 0.7em;
+  background-color: #04C5D7;
+  border-radius: 2px;
+  color: #fff;
+}
+
+.btn-check-answer:hover {
+  background-color: #039dab;
+  color: #fff;
+}
+
 /* Navbar */
 .navbar-brand {
   font-family: 'Roboto';

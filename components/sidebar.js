@@ -87,8 +87,8 @@ document.getElementById("sidebar").innerHTML = `
           )}">Karakteristik Rangkaian Listrik (Rangkaian Hambatan Listrik)</a>
         </div>
         <div class="list-course">
-          <a href="/pages/materi-2/4/" class="list-course-child ${getChapChild(
-            "materi-2/4/"
+          <a href="/pages/course-1/6/" class="list-course-child ${getChapChild(
+            "course-1/6/"
           )}">Kuis</a>
         </div>
       </div>
@@ -97,44 +97,44 @@ document.getElementById("sidebar").innerHTML = `
   <div class="accordion-item">
     <h2 class="accordion-header" id="panelsStayOpen-headingThree">
       <button class="accordion-button ${getCollapsed(
-        "materi-3"
+        "course-2"
       )}" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
         Sumber Listrik, Penggunaan Energi Listrik, Upaya Penghematan, dan
       Pencegahan bahaya Penggunaannya
       </button>
     </h2>
     <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse ${getChapClass(
-      "materi-3"
+      "course-2"
     )}" aria-labelledby="panelsStayOpen-headingThree">
       <div class="accordion-body">
         <div class="list-course mb-3">
-          <a href="/pages/materi-3/0/" class="list-course-child ${getChapChild(
-            "materi-3/0/"
+          <a href="/pages/course-2/0/" class="list-course-child ${getChapChild(
+            "course-2/0/"
           )}">Sumber Arus Listrik</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-3/1/" class="list-course-child ${getChapChild(
-            "materi-3/1/"
+          <a href="/pages/course-2/1/" class="list-course-child ${getChapChild(
+            "course-2/1/"
           )}">Sumber-Sumber Energi Listrik</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-3/2/" class="list-course-child ${getChapChild(
-            "materi-3/2/"
+          <a href="/pages/course-2/2/" class="list-course-child ${getChapChild(
+            "course-2/2/"
           )}">Penggunaan Energi Listrik di Lingkungan Sekitar</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-3/3/" class="list-course-child ${getChapChild(
-            "materi-3/3/"
+          <a href="/pages/course-2/3/" class="list-course-child ${getChapChild(
+            "course-2/3/"
           )}">Upaya Penghematan Energi Listrik</a>
         </div>
         <div class="list-course mb-3">
-          <a href="/pages/materi-3/3/" class="list-course-child ${getChapChild(
-            "materi-3/3/"
+          <a href="/pages/course-2/4/" class="list-course-child ${getChapChild(
+            "course-2/4/"
           )}">Pencegahan Bahaya Penggunaan Listrik</a>
         </div>
         <div class="list-course">
-          <a href="/pages/materi-3/3/" class="list-course-child ${getChapChild(
-            "materi-3/3/"
+          <a href="/pages/course-2/5/" class="list-course-child ${getChapChild(
+            "course-2/5/"
           )}">Kuis</a>
         </div>
       </div>
@@ -153,8 +153,8 @@ document.getElementById("sidebar").innerHTML = `
     )}" aria-labelledby="panelsStayOpen-headingFour">
       <div class="accordion-body">
         <div class="list-course">
-          <a href="/pages/latihan/" class="list-course-child ${getChapChild(
-            "latihan/"
+          <a href="/pages/course-3/0/" class="list-course-child ${getChapChild(
+            "course-3/0/"
           )}">Latihan</a>
         </div>
       </div>

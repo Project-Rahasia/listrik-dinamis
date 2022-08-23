@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/assets/img/32x32.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="/assets/css/course.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.css">
+    <title>Latihan - Listrik Dinamis</title>
+    
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark" id="nav">
+      
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+      <div class="card my-5 text-center h-100">
+        <div class="card-body">
+          <h2 id="nama"></h2>
+          <p class="text-center">Jawaban benar: <span id="correct"></span>, Jawaban Salah: <span id="wrong"></span></p>
+          <h1>Nilai Anda</h1>
+          <h1 class="score"></h1>
+          <hr>
+          <a href="./" class="btn btn-md btn-info text-white retry rounded-0 py-2">Kerjakan Ulang</a>
+          <a href="/pages/materi-1/0/" class="btn btn-md btn-danger text-white next">Kembali Ke Materi</a>
+        </div>
+      </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Footer -->
+    <div class="container" id="footer">
+    
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Component -->
+    <script src="/components/navbar.js"></script>
+    <script src="/components/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.0/dist/sweetalert2.min.js"></script>
+    <script type="module">
+      const length = sessionStorage.getItem('length-3');
+      const correct = sessionStorage.getItem('correct-3');
+      const wrong = sessionStorage.getItem('wrong-3');
+      const nama = sessionStorage.getItem('nama');
+      const kelas = sessionStorage.getItem('kelas');
+  
+      let score = (correct/length) * 100;
+  
+      document.querySelector(".score").innerHTML = Math.ceil(score);
+      document.querySelector("#correct").innerHTML = correct;
+      document.querySelector("#wrong").innerHTML = wrong;
+      document.querySelector("#nama").innerHTML = nama;
+
+      function removeStorage() {
+        sessionStorage.removeItem('length-3');
+        sessionStorage.removeItem('correct-3');
+        sessionStorage.removeItem('wrong-3');
+        sessionStorage.removeItem('nama');
+        sessionStorage.removeItem('kelas');
+        sessionStorage.removeItem('timer-3');
+        sessionStorage.removeItem('jawaban-3');
+      }
+
+      const retry = document.querySelector(".retry");
+      retry.addEventListener("click", (e) => {
+        e.preventDefault();
+        removeStorage();
+        window.location = './';
+      })
+    </script>
+  </body>
+</html>

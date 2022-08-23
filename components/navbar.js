@@ -1,6 +1,6 @@
 document.querySelector(".navbar").innerHTML = `
 <div class="container">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="/">
     <img src="/assets/img/32x32.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
     Listrik Dinamis
   </a>
@@ -9,7 +9,7 @@ document.querySelector(".navbar").innerHTML = `
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-link active" aria-current="page" href="#">Beranda</a>
+      <a class="nav-link active" aria-current="page" href="/">Beranda</a>
       <a class="nav-link" href="#">Tentang</a>
     </div>
   </div>

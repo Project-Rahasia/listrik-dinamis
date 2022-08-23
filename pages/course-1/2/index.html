@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
   <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/course.css">
+  <link rel="stylesheet" href="/assets/css/utils-course.css">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow">
@@ -56,6 +57,10 @@
                   <li>Tambahkan tegangan pada baterai dengan cara menekan baterai kemudian geser sesuai besar tegangan yang diinginkan. Masukkan hasil pengukuran pada tabel.</li>
                   <li>Jangan mengubah besar hambatan pada lampu</li>
                 </ol>
+              </div>
+
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" width="100%" height="500px" src="https://phet.colorado.edu/sims/html/circuit-construction-kit-dc-virtual-lab/1.2.7/circuit-construction-kit-dc-virtual-lab_in.html"></iframe>
               </div>
 
               <h5>Hasil Percobaan:</h5>
@@ -281,6 +286,14 @@
             <div class="card-body">
               <img src="/assets/img/mariberlatih.png" alt="Mari Berlatih" class="img-fluid" width="200">
 
+              <div class="quiz-container-2">
+                <div id="quiz"></div>
+              </div>
+              <hr>
+              <div class="btn-action text-center">
+                <button id="check" class="btn btn-md btn-check-answer shadow" >Cek Jawaban</button>
+                <button id="next" class="btn btn-md btn-secondary shadow" >Soal Selanjutnya</button>
+              </div>
             </div>
           </div>
 
@@ -316,6 +329,8 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/sidebar.js"></script>
   <script src="/components/footer.js"></script>
+  <script src="./soal.js"></script>
+  <script src="./script.js"></script>
 
   <!-- Mathjax -->
   <script>
