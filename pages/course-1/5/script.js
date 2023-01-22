@@ -85,3 +85,47 @@ checkAnswer.addEventListener("click", () => {
 function results(n) {
   return randomQuestion[n].answer;
 }
+
+// Pahami-1
+const answerDefault = [
+  "10",
+  "2",
+  "3",
+  "6",
+  "2",
+  "3",
+  "6",
+  "3",
+  "2",
+  "1",
+  "6",
+  "6",
+  "6",
+  "1",
+  "10",
+  "1",
+  "11",
+];
+const pahami1 = document.querySelectorAll(".pahami-1");
+const checkPahami1 = document.getElementById("check-pahami-1");
+const messagePahami1 = document.getElementById("message-pahami-1");
+
+checkPahami1.addEventListener("click", () => {
+  let wrong = 0;
+  answerDefault.forEach((item, index) => {
+    if (pahami1[index].value !== item) {
+      pahami1[index].style.border = "2px solid red";
+      wrong++;
+    } else {
+      pahami1[index].style.border = "2px solid green";
+    }
+
+    if (wrong === answerDefault.length) {
+      messagePahami1.innerText = "Semua Jawaban Salah";
+    } else if (wrong > 0) {
+      messagePahami1.innerText = "Masih Ada Jawaban yang Salah";
+    } else {
+      messagePahami1.innerHTML = `Jadi, besarnya R<sub>AC</sub> adalaha 11.`;
+    }
+  });
+});

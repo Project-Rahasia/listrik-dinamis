@@ -85,3 +85,29 @@ checkAnswer.addEventListener("click", () => {
 function results(n) {
   return randomQuestion[n].answer;
 }
+
+// Pahami-1
+const answerDefault = ["100", "10", "100", "10", "10"];
+const pahami1 = document.querySelectorAll(".pahami-1");
+const checkPahami1 = document.getElementById("check-pahami-1");
+const messagePahami1 = document.getElementById("message-pahami-1");
+
+checkPahami1.addEventListener("click", () => {
+  let wrong = 0;
+  answerDefault.forEach((item, index) => {
+    if (pahami1[index].value !== item) {
+      pahami1[index].style.border = "2px solid red";
+      wrong++;
+    } else {
+      pahami1[index].style.border = "2px solid green";
+    }
+
+    if (wrong === 5) {
+      messagePahami1.innerText = "Semua Jawaban Salah";
+    } else if (wrong > 0) {
+      messagePahami1.innerText = "Masih Ada Jawaban yang Salah";
+    } else {
+      messagePahami1.innerText = `Jadi, besarnya beda potensial adalah 10 volt.`;
+    }
+  });
+});

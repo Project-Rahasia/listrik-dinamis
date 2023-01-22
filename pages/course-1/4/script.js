@@ -85,3 +85,49 @@ checkAnswer.addEventListener("click", () => {
 function results(n) {
   return randomQuestion[n].answer;
 }
+
+// Pertanyaan
+const checkPertanyaan = document.getElementById("check-pertanyaan");
+const responsePertanyaan = document.getElementById("response-pertanyaan");
+
+checkPertanyaan.addEventListener("click", () => {
+  const pertanyaanSatu = document.querySelector(
+    "input[name=pertanyaan-satu]:checked"
+  ).value;
+  const pertanyaanDua = document.querySelector(
+    "input[name=pertanyaan-dua]:checked"
+  ).value;
+
+  if (pertanyaanSatu == "true" && pertanyaanDua == "true") {
+    responsePertanyaan.innerHTML = `<p>Benar</p>`;
+  } else {
+    responsePertanyaan.innerHTML = `<p>Jawaban salah! silahkan coba lagi</p>`;
+  }
+});
+
+// Pahami-1
+const answerDefault = ["5", "3", "5", "3", "3", "5", "-2"];
+const pahami1 = document.querySelectorAll(".pahami-1");
+const checkPahami1 = document.getElementById("check-pahami-1");
+const messagePahami1 = document.getElementById("message-pahami-1");
+
+checkPahami1.addEventListener("click", () => {
+  let wrong = 0;
+  answerDefault.forEach((item, index) => {
+    if (pahami1[index].value !== item) {
+      pahami1[index].style.border = "2px solid red";
+      wrong++;
+    } else {
+      pahami1[index].style.border = "2px solid green";
+    }
+
+    if (wrong === 7) {
+      messagePahami1.innerText = "Semua Jawaban Salah";
+    } else if (wrong > 0) {
+      messagePahami1.innerText = "Masih Ada Jawaban yang Salah";
+    } else {
+      messagePahami1.innerHTML = `Tanda negatif (-) menunjukkan arah arus I<sub>A</sub>. Jadi, arus I<sub>A</sub> meninggalkan atau keluar dari titik simpul A.`;
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  });
+});

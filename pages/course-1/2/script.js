@@ -85,3 +85,47 @@ checkAnswer.addEventListener("click", () => {
 function results(n) {
   return randomQuestion[n].answer;
 }
+
+// Percobaan
+const checkPercobaan = document.getElementById("check-percobaan");
+const tegangan = document.querySelectorAll(".tegangan");
+const arus = document.querySelectorAll(".arus");
+const banding = document.querySelectorAll(".banding");
+
+checkPercobaan.addEventListener("click", () => {
+  banding.forEach((value, index) => {
+    const hasil = tegangan[index].value / arus[index].value;
+
+    if (banding[index].value != hasil) {
+      banding[index].style.border = "2px solid red";
+    } else {
+      banding[index].style.border = "2px solid green";
+    }
+  });
+});
+
+// Pahami-1
+const answerDefault = ["4", "5", "5", "4", "20"];
+const pahami1 = document.querySelectorAll(".pahami-1");
+const checkPahami1 = document.getElementById("check-pahami-1");
+const messagePahami1 = document.getElementById("message-pahami-1");
+
+checkPahami1.addEventListener("click", () => {
+  let wrong = 0;
+  answerDefault.forEach((item, index) => {
+    if (pahami1[index].value !== item) {
+      pahami1[index].style.border = "2px solid red";
+      wrong++;
+    } else {
+      pahami1[index].style.border = "2px solid green";
+    }
+
+    if (wrong === 5) {
+      messagePahami1.innerText = "Semua Jawaban Salah";
+    } else if (wrong > 0) {
+      messagePahami1.innerText = "Masih Ada Jawaban yang Salah";
+    } else {
+      messagePahami1.innerText = `Jadi, beda tegangan yang harus dipasang adalah 20 volt.`;
+    }
+  });
+});
