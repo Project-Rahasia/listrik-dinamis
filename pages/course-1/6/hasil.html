@@ -56,7 +56,7 @@
   <script src="/components/navbar.js"></script>
   <script src="/components/footer.js"></script>
 
-  <script type="text/javascript">
+  <script type="module">
     const length = sessionStorage.getItem('length-1');
     const correct = sessionStorage.getItem('correct-1');
     const wrong = sessionStorage.getItem('wrong-1');
@@ -68,6 +68,45 @@
     document.querySelector(".score").innerHTML = Math.ceil(score);
     document.querySelector("#correct").innerHTML = correct;
     document.querySelector("#wrong").innerHTML = wrong;
+
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDvj3Ac_53u-3GgHHEVTP0lnnTvO8-xPHw",
+      authDomain: "latihan-listrik-dinamis.firebaseapp.com",
+      projectId: "latihan-listrik-dinamis",
+      storageBucket: "latihan-listrik-dinamis.appspot.com",
+      messagingSenderId: "75775330904",
+      appId: "1:75775330904:web:afa120633d28b3e4ed182d"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getFirestore, collection, getDocs, addDoc} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+
+    const db = getFirestore(app);
+    const d = new Date();
+    const date = `${d.getDate()}-${d.getMonth()}-${d.getFullYear()}`;
+    // Add Data
+    async function addData() {
+      try {
+        const docRef = await addDoc(collection(db, "kuis-1"), {
+          nama: name,
+          kelas: kelas,
+          nilai: score,
+          tanggal: date
+        });
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
+
 
     function removeStorage() {
       sessionStorage.removeItem('length-1');
@@ -91,6 +130,14 @@
       e.preventDefault();
       removeStorage();
       window.location = './';
+    });
+
+    const next = document.querySelector(".next");
+    next.addEventListener("click", (e) => {
+      e.preventDefault();
+      removeStorage();
+      const href = next.getAttribute('href');
+      window.location = href;
     });
   </script>
 </body>

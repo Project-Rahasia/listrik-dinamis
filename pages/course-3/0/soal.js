@@ -110,8 +110,8 @@ const questions = [
     question:
       "Sepotong kawat yang panjangnya p meter dengan penampang A mm2 mempunyai hambatan R ohm. Jika kawat itu dilipat sehingga panjangnya setengah kali panjang semula ($frac{1}{2}p$) dan penampang menjadi dua kali semula (2A), hambatan kawat sekarang adalah ...",
     answers: {
-      a: "$frac{1}{4}R$ ohm",
-      b: "$frac{1}{2}R$ ohm",
+      a: "$\\frac{1}{4}R$ ohm",
+      b: "$\\frac{1}{2}R$ ohm",
       c: "R ohm",
       d: "2R ohm",
     },
