@@ -46,10 +46,6 @@
                       dengan benar
                     </li>
                     <li>
-                      Siswa mampu menerapkan hukum ohm pada rangkaian seri dan
-                      dan paralel dengan baik
-                    </li>
-                    <li>
                       Siswa mampu menerapkan upaya-upaya penghematan energi dan
                       upaya pencegahan kesalahan penggunaan listrik dengan baik
                     </li>
@@ -141,6 +137,17 @@
                         />
                         <label class="form-check-label fs-5" for="ac">
                           AC
+                        </label>
+                      </div>
+                      <div class="mb-3">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          value="bola-lampu"
+                          id="bola-lampu"
+                        />
+                        <label class="form-check-label fs-5" for="bola-lampu">
+                          Bola Lampu
                         </label>
                       </div>
                     </div>
@@ -262,6 +269,108 @@
               2,4 kWh. Jika tarif dasar listriknya Rp385,00, maka biaya yang
               harus dibayarkan adalah sebesar Rp924,00.
             </p>
+
+            <div class="card mt-2">
+              <div class="card-body">
+                <img
+                  src="/assets/img/pertanyaan.png"
+                  alt=""
+                  class="img-fluid mx-auto d-block mb-2"
+                  width="300"
+                />
+                <p>Sebuah kulkas memiliki daya 100 watt dinyalakan dalam waktu 24 jam/hari selama 30 hari. Berapakah biaya yang harus dibayarkan jika tarif dasar listriknya Rp. 500 ?</p>
+
+                <p>
+                  <b>Penyelesaian:</b> <br />
+                  <b>Diketahui : </b> <br />
+                </p>
+
+                <table>
+                  <tr>
+                    <td>
+                      Daya = 
+                      <input type="text" class="pahami-1" size="3" />
+                      watt = 
+                      <input type="text" class="pahami-1" size="3" />
+                      joule
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Waktu = 
+                      <input type="text" class="pahami-1" size="3" />
+                      $\times$
+                      <input type="text" class="pahami-1" size="3" />
+                      = 
+                      <input type="text" class="pahami-1" size="3" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Tarif dasar listrik = Rp. 
+                      <input type="text" class="pahami-1" size="3" />
+                    </td>
+                  </tr>
+                </table>
+
+                <p class="my-2">
+                  <b>Ditanyakan: </b> Biaya yang dibayarkan
+                </p>
+
+                <p>
+                  <b>Jawab:</b> <br />
+                  W = P $\times$ t <br />
+                </p>
+
+                <table>
+                  <tr>
+                    <td>
+                      W = 
+                      <input type="text" class="pahami-1" size="3" />
+                      $\times$
+                      <input type="text" class="pahami-1" size="3" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      W = 
+                      <input type="text" class="pahami-1" size="3" /> Wh
+                      = 
+                      <input type="text" class="pahami-1" size="3" /> kWh
+                    </td>
+                  </tr>
+                </table>
+
+                <table class="mt-3">
+                  <tr>
+                    <td>
+                      Biaya yang di bayarkan = Jumlah kWh $\times$ Tarif dasar listrik <br />
+                      Biaya yang di bayarkan = 
+                      <input type="text" class="pahami-1" size="3" />
+                      $\times$
+                      <input type="text" class="pahami-1" size="3" />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Biaya yang di bayarkan = Rp.
+                      <input type="text" class="pahami-1" size="3" />
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="text-center">
+                  <button
+                    id="check-pahami-1"
+                    class="btn btn-md btn-check-answer shadow"
+                  >
+                    Cek Jawaban
+                  </button>
+                </div>
+                <h1 id="message-pahami-1"></h1>
+                
+              </div>
+            </div>
           </div>
           <hr />
           <div class="row web my-3">
@@ -298,6 +407,17 @@
     <script src="/components/navbar.js"></script>
     <script src="/components/sidebar.js"></script>
     <script src="/components/footer.js"></script>
+    <script src="./script.js"></script>
+    <script src="/components/open-course.js"></script>
+    <script type="text/javascript">
+      const next = document.querySelector(".next");
+      
+      next.addEventListener("click", function(e) {
+        e.preventDefault();
+        localStorage.setItem('sub-3-3', '1');
+        location.href = `${next.getAttribute('href')}`;
+      });
+    </script>
 
     <!-- Mathjax -->
     <script>

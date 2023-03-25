@@ -25,7 +25,8 @@
           <div class="text-center my-5">
             <p class="text-center mb-5">Jawaban benar: <span id="correct"></span>, Jawaban Salah <span id="wrong"></span></p>
             <h1>Nilai Anda</h1>
-            <h1 class="score mb-5"></h1>
+            <h1 class="score mb-1"></h1>
+            <h4 class="message mb-5"></h4>
             <a href="./index.html" class="btn btn-sm btn-outline-danger px-5 py-2 rounded-0 retry">Kerjakan Ulang</a>
           </div>
           
@@ -69,6 +70,9 @@
     document.querySelector("#correct").innerHTML = correct;
     document.querySelector("#wrong").innerHTML = wrong;
 
+    const message = document.querySelector(".message");
+    const next = document.querySelector(".next");
+
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
     // TODO: Add SDKs for Firebase products that you want to use
@@ -87,7 +91,7 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
-    import { getFirestore, collection, getDocs, addDoc} from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, addDoc, query, where } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
     const db = getFirestore(app);
     const d = new Date();
@@ -107,6 +111,20 @@
       }
     }
 
+    // Get KKM
+    async function getKkm () {
+      let kkm = null;
+      const q = query(collection(db, "tb-kkm"), where("idData", "==", 1));
+
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        kkm = doc.data().kkm;
+      });
+      return kkm;
+    }
+
+    const kkm = await getKkm();
+
     function removeStorage() {
       sessionStorage.removeItem('length-2');
       sessionStorage.removeItem('correct-2');
@@ -121,7 +139,15 @@
       removeStorage();
       window.location = './';
     } else {
-      addData();
+      if (score < kkm) {
+        next.classList.add("disabled");
+        addData();
+        message.innerText = `Maaf anda belum lulus, nilai minimal yang harus anda dapatkan ${kkm}. Silahkan kerjakan ulang.`;
+      } else {
+        addData();
+        next.classList.remove("disabled");
+        message.innerText = `Selamat anda anda lulus. Silahkan lanjut kemateri berikutnya.`;
+      }
     }
 
     const retry = document.querySelector(".retry");
@@ -131,11 +157,11 @@
       window.location = './';
     });
 
-    const next = document.querySelector(".next");
     next.addEventListener("click", (e) => {
       e.preventDefault();
       removeStorage();
       const href = next.getAttribute('href');
+      localStorage.setItem('sub-4-0', '1');
       window.location = href;
     });
   </script>

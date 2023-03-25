@@ -287,6 +287,16 @@
     <script src="/components/sidebar.js"></script>
     <script src="/components/footer.js"></script>
     <script src="./script.js"></script>
+    <script src="/components/open-course.js"></script>
+    <script type="text/javascript">
+      const next = document.querySelector(".next");
+      
+      next.addEventListener("click", function(e) {
+        e.preventDefault();
+        localStorage.setItem('sub-2-4', '1');
+        location.href = `${next.getAttribute('href')}`;
+      });
+    </script>
 
     <!-- Mathjax -->
     <script>

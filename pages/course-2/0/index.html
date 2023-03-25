@@ -44,10 +44,6 @@
                       dengan benar
                     </li>
                     <li>
-                      Siswa mampu menerapkan hukum ohm pada rangkaian seri dan
-                      dan paralel dengan baik
-                    </li>
-                    <li>
                       Siswa mampu menerapkan upaya-upaya penghematan energi dan
                       upaya pencegahan kesalahan penggunaan listrik dengan baik
                     </li>
@@ -319,13 +315,13 @@
                 </p>
 
                 <div class="table-responsive">
-                  <table class="table table-bordered">
+                  <table class="table table-bordered fs-6">
                     <tr class="text-center">
                       <th>Soal</th>
                       <th>Pilihan Jawaban</th>
                     </tr>
                     <tr>
-                      <td width="75%">
+                      <td width="75%" style="line-height: 2.2em !important;">
                         <ol>
                           <li>
                             <input type="text" class="berlatih-1" size="8" />
@@ -354,7 +350,7 @@
                           </li>
                         </ol>
                       </td>
-                      <td>
+                      <td style="line-height: 2.2em !important;">
                         <ol type="a">
                           <li>Polarisasi</li>
                           <li>Katoda</li>
@@ -376,7 +372,7 @@
                     Cek Jawaban
                   </button>
                 </div>
-                <div id="message-berlatih-1"></div>
+                <h1 id="message-berlatih-1"></h1>
               </div>
             </div>
           </div>
@@ -416,6 +412,16 @@
     <script src="/components/sidebar.js"></script>
     <script src="/components/footer.js"></script>
     <script src="./script.js"></script>
+    <script src="/components/open-course.js"></script>
+    <script type="text/javascript">
+      const next = document.querySelector(".next");
+      
+      next.addEventListener("click", function(e) {
+        e.preventDefault();
+        localStorage.setItem('sub-3-1', '1');
+        location.href = `${next.getAttribute('href')}`;
+      });
+    </script>
 
     <!-- Mathjax -->
     <script>

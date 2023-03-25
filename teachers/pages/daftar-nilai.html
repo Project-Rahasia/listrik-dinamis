@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/assets/img/classroom.png" type="image/x-icon">
   <title>Halaman Guru</title>
   <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="/assets/css/style-teacher.css">
@@ -48,6 +49,7 @@
               <th>Nama</th>
               <th>Kelas</th>
               <th>Nilai</th>
+              <th>Keterangan</th>
             </tr>
           </thead>
           <tbody id="kuis-1">
@@ -65,6 +67,7 @@
               <th>Nama</th>
               <th>Kelas</th>
               <th>Nilai</th>
+              <th>Keterangan</th>
             </tr>
           </thead>
           <tbody id="kuis-2">
@@ -82,6 +85,7 @@
               <th>Nama</th>
               <th>Kelas</th>
               <th>Nilai</th>
+              <th>Keterangan</th>
             </tr>
           </thead>
           <tbody id="latihan">
@@ -93,10 +97,10 @@
 
   </div>
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
   <script src="/assets/js/script-teacher.js"></script>
   <script src="/teachers/components/sidebar.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="/assets/vendor/jquery-3.6.4.min.js"></script>
   <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
 
@@ -125,19 +129,37 @@
     import { getFirestore, doc, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-firestore.js";
 
     const db = getFirestore(app);
+
+    async function getKkm () {
+      let kkm = null;
+      const q = query(collection(db, "tb-kkm"), where("idData", "==", 1));
+
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        // console.log(doc.id, " => ", doc.data());
+        kkm = doc.data().kkm;
+      });
+      return kkm;
+    }
+
+    const kkm = await getKkm();
+
     async function getKuis(data, temp, table) {
 
       const querySnapshot = await getDocs(collection(db, data));
       let i = 1;
       querySnapshot.forEach((doc) => {
-        let tr = document.createElement('tr')
+        let ket = doc.data().nilai >= kkm ? 'Lulus' : 'Tidak Lulus';
+        let tr = document.createElement('tr');
         tr.innerHTML = `
           <td>${i++}</td>
           <td>${doc.data().nama}</td>
           <td>${doc.data().kelas}</td>
           <td>${doc.data().nilai}</td>
+          <td>${ket}</td>
         `;
-        temp.appendChild(tr)
+        temp.appendChild(tr);
       });
 
       $(document).ready( function () {
@@ -151,13 +173,13 @@
     getKuis('latihan', latihan, 'table-3');
 
     // Tabs
-    const c1 = document.querySelector("#c1")
-    const c2 = document.querySelector("#c2")
-    const c3 = document.querySelector("#c3")
-    const content1 = document.querySelector("#content1")
-    const content2 = document.querySelector("#content2")
-    const content3 = document.querySelector("#content3")
-    const tabContent = document.querySelectorAll(".tabcontent")
+    const c1 = document.querySelector("#c1");
+    const c2 = document.querySelector("#c2");
+    const c3 = document.querySelector("#c3");
+    const content1 = document.querySelector("#content1");
+    const content2 = document.querySelector("#content2");
+    const content3 = document.querySelector("#content3");
+    const tabContent = document.querySelectorAll(".tabcontent");
     
     content2.style.display = "none";
     content3.style.display = "none";

@@ -17,7 +17,7 @@ p {
   font-family: "Open Sans";
   font-weight: 400;
   font-size: 1.2em;
-  line-height: 2.2em !important;
+  line-height: 2em !important;
   text-align: justify;
 }
 
@@ -26,8 +26,12 @@ p.math {
   text-align: center;
 }
 
-#math {
-  font-size: 1.2em;
+.isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  pointer-events: none;
 }
 
 .table thead tr th,
@@ -35,8 +39,11 @@ tbody tr td,
 tbody tr th {
   color: #3f3f46;
   font-family: "Open Sans";
-  font-size: 1.2em;
-  line-height: 2.2em !important;
+  line-height: 1.2em !important;
+}
+
+.fs-6 {
+  font-size: 1.2em !important;
 }
 
 .btn-check-answer {

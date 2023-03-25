@@ -22,10 +22,16 @@ checkBerlatih1.addEventListener("click", () => {
 
     if (wrong === answerDefault.length) {
       messageBerlatih1.innerText = "Semua Jawaban Salah";
+      messageBerlatih1.style.color = `#cc372f`;
+      messageBerlatih1.style.textAlign = `center`;
     } else if (wrong > 0) {
       messageBerlatih1.innerText = "Masih Ada Jawaban yang Salah";
+      messageBerlatih1.style.color = `#cc372f`;
+      messageBerlatih1.style.textAlign = `center`;
     } else {
       messageBerlatih1.innerHTML = `Jawaban Benar Semua`;
+      messageBerlatih1.style.color = `#2fcc71`;
+      messageBerlatih1.style.textAlign = `center`;
     }
   });
 });

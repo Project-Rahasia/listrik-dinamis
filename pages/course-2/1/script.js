@@ -44,10 +44,10 @@ checkPertanyaan.addEventListener("click", () => {
   ) {
     responsePertanyaan.innerText = `Jawaban Benar Semua`;
     responsePertanyaan.style.color = `#2fcc71`;
-    responsePertanyaan.style.textAlign = `Center`;
+    responsePertanyaan.style.textAlign = `center`;
   } else {
     responsePertanyaan.innerText = `Masih Ada Jawaban Salah`;
     responsePertanyaan.style.color = `#cc372f`;
-    responsePertanyaan.style.textAlign = `Center`;
+    responsePertanyaan.style.textAlign = `center`;
   }
 });
