@@ -122,10 +122,16 @@ checkPahami1.addEventListener("click", () => {
 
     if (wrong === answerDefault.length) {
       messagePahami1.innerText = "Semua Jawaban Salah";
+      messagePahami1.style.color = `#cc372f`;
+      messagePahami1.style.textAlign = `center`;
     } else if (wrong > 0) {
       messagePahami1.innerText = "Masih Ada Jawaban yang Salah";
+      messagePahami1.style.color = `#cc372f`;
+      messagePahami1.style.textAlign = `center`;
     } else {
-      messagePahami1.innerHTML = `Jadi, besarnya R<sub>AC</sub> adalaha 11.`;
+      messagePahami1.innerHTML = `Jadi, besarnya R<sub>AC</sub> adalah 11.`;
+      messagePahami1.style.color = `#2fcc71`;
+      messagePahami1.style.textAlign = `center`;
     }
   });
 });

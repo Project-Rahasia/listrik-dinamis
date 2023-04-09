@@ -99,9 +99,13 @@ checkPertanyaan.addEventListener("click", () => {
   ).value;
 
   if (pertanyaanSatu == "true" && pertanyaanDua == "true") {
-    responsePertanyaan.innerHTML = `<p>Benar</p>`;
+    responsePertanyaan.innerText = `Jawaban Benar`;
+    responsePertanyaan.style.color = `#2fcc71`;
+    responsePertanyaan.style.textAlign = `center`;
   } else {
-    responsePertanyaan.innerHTML = `<p>Jawaban salah! silahkan coba lagi</p>`;
+    responsePertanyaan.innerText = `Jawaban salah! silahkan coba lagi`;
+    responsePertanyaan.style.color = `#cc372f`;
+    responsePertanyaan.style.textAlign = `center`;
   }
 });
 
@@ -123,10 +127,16 @@ checkPahami1.addEventListener("click", () => {
 
     if (wrong === 7) {
       messagePahami1.innerText = "Semua Jawaban Salah";
+      messagePahami1.style.color = `#cc372f`;
+      messagePahami1.style.textAlign = `center`;
     } else if (wrong > 0) {
       messagePahami1.innerText = "Masih Ada Jawaban yang Salah";
+      messagePahami1.style.color = `#cc372f`;
+      messagePahami1.style.textAlign = `center`;
     } else {
       messagePahami1.innerHTML = `Tanda negatif (-) menunjukkan arah arus I<sub>A</sub>. Jadi, arus I<sub>A</sub> meninggalkan atau keluar dari titik simpul A.`;
+      messagePahami1.style.color = `#2fcc71`;
+      messagePahami1.style.textAlign = `center`;
       MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
     }
   });

@@ -109,6 +109,7 @@
                       type="checkbox"
                       value="soal-1"
                       id="soal-1"
+                      name="hemat"
                     />
                     <label class="form-check-label fs-5" for="soal-1">
                       Mengganti lampu biasa dengan lampu LED
@@ -122,6 +123,7 @@
                       type="checkbox"
                       value="soal-2"
                       id="soal-2"
+                      name="hemat"
                     />
                     <label class="form-check-label fs-5" for="soal-2">
                       Menyalakan lampu seperlunya
@@ -135,6 +137,7 @@
                       type="checkbox"
                       value="soal-3"
                       id="soal-3"
+                      name="hemat"
                     />
                     <label class="form-check-label fs-5" for="soal-3">
                       Mencabut kabel dari stop kontak saat tidak digunakan
@@ -148,6 +151,7 @@
                       type="checkbox"
                       value="soal-4"
                       id="soal-4"
+                      name="hemat"
                     />
                     <label class="form-check-label fs-5" for="soal-4">
                       Tidak membiarkan alat elektronik menyala ketika tidak
@@ -162,6 +166,7 @@
                       type="checkbox"
                       value="soal-5"
                       id="soal-5"
+                      name="hemat"
                     />
                     <label class="form-check-label fs-5" for="soal-5">
                       Tidak sering menyalakan dan mematikan AC
@@ -175,6 +180,7 @@
                       type="checkbox"
                       value="soal-6"
                       id="soal-6"
+                      name="hemat"
                     />
                     <label class="form-check-label fs-5" for="soal-6">
                       Memanfaatkan cahaya matahari untuk menjemur baju dan
@@ -182,6 +188,18 @@
                     </label>
                     <hr />
                   </div>
+                  
+                  <div class="row justify-content-center">
+                    <div class="col-md-2">
+                      <button
+                        id="check-pertanyaan"
+                        class="btn btn-md btn-check-answer shadow"
+                      >
+                        Cek Jawaban
+                      </button>
+                    </div>
+                  </div>
+                  <h1 id="message" class="text-center mt-2"></h1>
                 </div>
               </div>
             </div>
@@ -230,23 +248,31 @@
         localStorage.setItem('sub-3-4', '1');
         location.href = `${next.getAttribute('href')}`;
       });
-    </script>
 
-    <!-- Mathjax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [
-            ["$", "$"],
-            ["\\(", "\\)"],
-          ],
-        },
-      };
+      const check = document.querySelector("#check-pertanyaan");
+      const message = document.querySelector("#message");
+
+      check.addEventListener("click", () => {
+        const checkbox = document.getElementsByName("hemat");
+        let a = 0;
+        for(let i=0; i < checkbox.length; i++) {
+          if (checkbox[i].checked) {
+            a++;
+          }
+        }
+        
+        if (a === 0) {
+          message.innerHTML = "Silahkan pilih dulu";
+          message.style.color = `#cc372f`;
+          message.style.textAlign = `Center`;
+        } else if (a > 0) {
+          message.innerHTML = `Selamat kamu sudah melakukan upaya penghematan listrik`;
+          message.style.color = `#2fcc71`;
+          message.style.textAlign = `Center`;
+        } else {
+          console.log('not found');
+        }
+      });
     </script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
-    ></script>
   </body>
 </html>

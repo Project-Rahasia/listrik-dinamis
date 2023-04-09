@@ -11,8 +11,12 @@ checkPertanyaan.addEventListener("click", () => {
   ).value;
 
   if (pertanyaanSatu == "true" && pertanyaanDua == "true") {
-    responsePertanyaan.innerHTML = `<p>Untuk mengetahui penjelasan lebih lanjut, silahkan simak materi berikut.</p>`;
+    responsePertanyaan.innerText = `Untuk mengetahui penjelasan lebih lanjut, silahkan simak materi berikut.`;
+    responsePertanyaan.style.color = `#2fcc71`;
+    responsePertanyaan.style.textAlign = `center`;
   } else {
-    responsePertanyaan.innerHTML = `<p>Jawaban salah! silahkan coba lagi</p>`;
+    responsePertanyaan.innerText = `Jawaban salah! silahkan coba lagi`;
+    responsePertanyaan.style.color = `#cc372f`;
+    responsePertanyaan.style.textAlign = `center`;
   }
 });
