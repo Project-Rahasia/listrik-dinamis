@@ -73,11 +73,12 @@ function onPlayerStateChange(event) {
 
   if (getCurrentTime() == 226.361) {
     hide.style.display = 'block';
+    stopVideo()
   }
   console.log(getCurrentTime());
 }
 function stopVideo() {
-  player.stopVideo();
+  player.stopVideo(226.361);
 }
 
 function getCurrentTime() {
