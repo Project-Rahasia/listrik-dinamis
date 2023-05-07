@@ -69,27 +69,37 @@
     
   </nav>
 
-  <div class="container mt-5">
+  <div class="container my-4">
     <div class="row">
-      <div class="col-lg-9 col-sm-12" id="course">
-        <!-- Start Course Content -->
-        <div class="course-content">
-
-          <!-- Container soal -->
-          <div class="btn btn-md btn-info text-white fw-bold rounded-0 mb-4" id="time">00 : 00</div>
-          <div class="quiz-container">
-            <div id="quiz"></div>
+      <div class="col-lg-3 col-sm-12 my-2">
+        <div class="card h-100 shadow rounded-0">
+          <div class="card-body text-center">
+            <div id="time" class="badge bg-dark fw-bold rounded-0 px-3 py-3" style="font-size: 1em;">00 : 00</div>
+            <hr>
+            <div class="card bg-light text-white justify-content-end mb-2 rounded-0">
+              <div style="padding: 15px 2px; display: flex; justify-content: center">
+                <span class="number-btn text-center"></span>
+              </div>
+            </div>
+            <hr>
+            <button id="submit" class="btn btn-md btn-danger end shadow">Selesai</button>
           </div>
-          <hr>
-          <div class="btn-action text-center">
-            <button id="back" class="btn btn-md btn-secondary shadow my-1 mx-1">Sebelumnya</button>
-            <button id="next" class="btn btn-md btn-success shadow my-1 mx-1">Selanjutnya</button>
-            <button id="submit" class="btn btn-md btn-danger end shadow my-1 mx-1">Selesai</button>
-          </div>
-          <!-- End Container Soal -->
-
         </div>
-        <!-- End Course Content -->        
+      </div>
+      <div class="col-lg-9 col-sm-12 my-2">
+        <div class="card h-100 shadow rounded-0">
+          <div class="card-body">
+            <div class="quiz-container">
+              <div id="quiz"></div>
+            </div>
+            <hr>
+            <div class="btn-action text-center">
+              <button id="back" class="btn btn-md btn-secondary shadow">Kembali</button>
+              <button id="next" class="btn btn-md btn-success shadow" >Selanjutnya</button>
+              
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -168,8 +178,19 @@
       
     }
 
+    let numberBtn = document.querySelector('.number-btn');
+    for (i = 0; i < sliceQuestion.length; i++) {
+      let li = document.createElement('span');
+      li.innerHTML = `
+          <button style="width:40px;" id="numbBtn${i}" type="button" class="btn btn-sm btn-outline-dark rounded-0 mx-1 mt-1 pl-1 pr-1" onclick="paginationSlide(${i})">${
+        i + 1
+      }</button>`;
+      numberBtn.appendChild(li);
+    }
 
     function showSlide(n) {
+      document.getElementById(`numbBtn${currentSlide}`).classList.remove('active');
+      document.getElementById(`numbBtn${n}`).classList.add('active');
       slides[currentSlide].classList.remove('active-slide');
       slides[n].classList.add('active-slide');
 
@@ -180,6 +201,9 @@
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
       if (userAnswer !== undefined) {
+        document.getElementById(`numbBtn${currentSlide}`).classList.remove('btn-outline-dark');
+        document.getElementById(`numbBtn${currentSlide}`).classList.add('btn-success');
+        document.getElementById(`numbBtn${currentSlide}`).classList.add('border-1');
         var elements = document.querySelectorAll(`input[name='question-dua${currentSlide}']`);
         elements.forEach((element) => {
           if (element.value == userAnswer) {
@@ -210,6 +234,10 @@
 
     function backSlide() {
       showSlide(currentSlide - 1);
+    }
+
+    function paginationSlide(n) {
+      showSlide(n);
     }
 
     let questionContainer = document.querySelector("#quiz");
@@ -312,6 +340,9 @@
               if (element.value == splitCheck[1]) {
                 // console.log(element);
                 element.checked = true;
+                document.getElementById(`numbBtn${i}`).classList.remove('btn-outline-info');
+                document.getElementById(`numbBtn${i}`).classList.add('btn-success');
+                document.getElementById(`numbBtn${i}`).classList.add('text-white');
               }
             });
           } else {

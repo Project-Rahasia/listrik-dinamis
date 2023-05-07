@@ -10,7 +10,7 @@ document.querySelector(".navbar").innerHTML = `
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-link active" aria-current="page" href="/">Beranda</a>
-      <a class="nav-link" href="#">Tentang</a>
+      <a class="nav-link" href="/about.html">Tentang</a>
     </div>
   </div>
 </div>

@@ -35,3 +35,51 @@ checkBerlatih1.addEventListener("click", () => {
     }
   });
 });
+
+
+// YT Video
+var tag = document.createElement('script');
+const hide = document.querySelector(".hide");
+hide.style.display = 'none';
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    height: '500',
+    width: '100%',
+    videoId: 'awWwP7MsxEM',
+    playerVars: {
+      'playsinline': 1
+    },
+    events: {
+      'onStateChange': onPlayerStateChange
+    }
+  });
+}
+
+function onPlayerReady(event) {
+  event.target.playVideo();
+}
+
+var done = false;
+function onPlayerStateChange(event) {
+  if (event.data == YT.PlayerState.PLAYING && !done) {
+    done = true;
+  }
+
+  if (getCurrentTime() == 226.361) {
+    hide.style.display = 'block';
+  }
+  console.log(getCurrentTime());
+}
+function stopVideo() {
+  player.stopVideo();
+}
+
+function getCurrentTime() {
+  return player.getCurrentTime();
+}

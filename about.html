@@ -24,11 +24,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/">Beranda</a>
-          <a class="nav-link mr-3" href="/about.html">Tentang</a>
+          <a class="nav-link" aria-current="page" href="/">Beranda</a>
+          <a class="nav-link mr-3 active" href="/about.html">Tentang</a>
         </div>
         <div class="navbar-nav ms-auto">
-          <a class="nav-link active" aria-current="page" href="/teachers/index.html">Guru</a>
+          <a class="nav-link" aria-current="page" href="/teachers/index.html">Guru</a>
         </div>
       </div>
     </div>
@@ -37,31 +37,49 @@
 
   <!-- Hero -->
   <div class="container container-banner mt-5">
-    <div class="row d-flex flex-row-reverse">
-      <div class="col-12 col-lg-7 col-md-7">
-        <img src="/assets/img/banner.gif" alt="Logo" class="img-fluid d-block mx-auto border-0" width="800">
-      </div>
-      <div class="col-12 col-lg-5 col-md-5">
-        <div class="py-5 mt-5">
-          <h2 class="mb-3">Listrik Dinamis</h2>
-          <p class="mb-5">Media Pembelajaran Listrik Dinamis</p>
+    <p class="fw-bold fs-5">Media pembelajaran ini dibuat untuk memenuhi persyaratan dalam menyelesaikan Program Strata-1 Pendidikan Komputer dengan judul tugas akhir:</p>
 
-          <a href="/pages/course-0/0/" class="btn btn-md btn-start px-5 next">Mulai Belajar</a>
-        </div>
+      <p class="justify fw-bold fs-4">"PENGEMBANGAN MEDIA PEMBELAJARAN INTERAKTIF BERBASIS WEB PADA MATERI POLA BILANGAN KELAS VIII DENGAN METODE TUTORIAL"</p>
+
+      <div class="table-responsive">
+        <table class="table" style="width: 60%;">
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td width="32%">Nama</td>
+            <td>: ...</td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>: ...</td>
+          </tr>
+          <tr>
+            <td>Dosen Pembimbing 1</td>
+            <td>: ...</td>
+          </tr>
+          <tr>
+            <td>Dosen Pembimbing 2</td>
+            <td>: ...</td>
+          </tr>
+          <tr>
+            <td>Program Studi</td>
+            <td>: S1 Pendidikan Komputer</td>
+          </tr>
+          <tr>
+            <td>Fakultas</td>
+            <td>: Keguruan dan Ilmu Pendidikan</td>
+          </tr>
+          <tr>
+            <td>Universitas</td>
+            <td>: Universitas Lambung Mangkurat</td>
+          </tr>
+        </table>
       </div>
-    </div>
   </div>
   <!-- End Hero -->
   
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript">
-    const next = document.querySelector(".next");
-    
-    next.addEventListener("click", function(e) {
-      e.preventDefault();
-      localStorage.setItem('sub-1-0', '1');
-      location.href = `${next.getAttribute('href')}`;
-    });
-  </script>
 </body>
 </html>
